@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'tomasr/molokai'
 call plug#end()
    
+
 colorscheme molokai
 "===== 表示設定====="
 set number
