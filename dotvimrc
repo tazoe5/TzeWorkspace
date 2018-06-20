@@ -2,7 +2,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'tomasr/molokai'
 call plug#end()
    
-
 colorscheme molokai
 "===== 表示設定====="
 set number
@@ -14,6 +13,10 @@ set laststatus=2
 set ruler
 set lines=50
 set columns=100
+set cursorline
+set cursorcolumn
+highlight CursorLine cterm=underline ctermfg=None ctermbg=None
+highlight CursorLine gui=underline guifg=None guibg=None
 syntax on
 
 set fenc=utf-8
