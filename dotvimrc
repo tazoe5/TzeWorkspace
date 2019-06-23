@@ -1,8 +1,22 @@
 call plug#begin('~/.vim/plugged')
 Plug 'tomasr/molokai'
+Plug 'tpope/vim-markdown'
+Plug 'kannokanno/previm'
+Plug 'tyru/open-browser.vim'
+Plug 'iamcco/markdown-preview.vim'
+Plug 'iamcco/mathjax-support-for-mkdp'
 call plug#end()
-   
 colorscheme molokai
+"===== markdwon preview ======"
+ """ markdown {{{
+   autocmd BufRead,BufNewFile *.mkd  set filetype=markdown
+   autocmd BufRead,BufNewFile *.md  set filetype=markdown
+   " Need: kannokanno/previm
+   nnoremap <silent> <C-p> :PrevimOpen<CR> " Ctrl-pでプレビュー
+   " 自動で折りたたまないようにする
+   let g:vim_markdown_folding_disabled=1
+   let g:previm_enable_realtime = 1
+ " }}}
 "===== 表示設定====="
 set number
 set title
@@ -11,10 +25,9 @@ set list listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%
 set visualbell
 set laststatus=2
 set ruler
-set lines=50
-set columns=100
 set cursorline
 set cursorcolumn
+autocmd FileType python setlocal tabstop=2
 highlight CursorLine cterm=underline ctermfg=None ctermbg=None
 highlight CursorLine gui=underline guifg=None guibg=None
 syntax on
